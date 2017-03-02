@@ -26,8 +26,9 @@ module.exports = {
     alias: {
       Main: 'app/components/Main.jsx', 
       Navigation: 'app/components/Navigation.jsx',
-      ContactFormController: 'app/components/ContactFormController.jsx', 
-      ContactForm: 'app/components/ContactForm', 
+      ManageContactForm: 'app/components/ManageContactForm.jsx', 
+      ContactForm: 'app/components/ContactForm.jsx', 
+      TextInput: 'app/components/TextInput.jsx', 
       applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']

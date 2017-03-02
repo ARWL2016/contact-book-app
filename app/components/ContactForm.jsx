@@ -1,12 +1,16 @@
 const React = require('react');
 
-var ContactForm = () => {
-    return (
-        <div> 
-                <h1>Contact Form</h1>
+var TextInput = require('TextInput'); 
 
-        </div> 
-    );
-};
+var ContactForm = React.createClass({
+    render: function () {
+        return (
+            <div> 
+                <h1>Contact Form</h1>
+                <TextInput />
+            </div> 
+        );
+    } 
+}); 
 
 module.exports = ContactForm; 

@@ -3,7 +3,7 @@ const ReactDOM = require('react-dom');
 const {Route, Router, IndexRoute, hashHistory} = require('react-router'); 
 
 var Main = require('Main'); 
-var ContactFormController = require('ContactFormController'); 
+var ManageContactForm = require('ManageContactForm'); 
 
 // Load foundation 
 $(document).foundation(); 
@@ -14,7 +14,7 @@ require('style!css!sass!applicationStyles')
 ReactDOM.render(
     <Router history={hashHistory}>
         <Route path='/' component={Main}>
-            <IndexRoute component={ContactFormController} />
+            <IndexRoute component={ManageContactForm} />
         </Route>
     </Router>, 
     document.getElementById('app')
