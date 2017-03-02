@@ -2,7 +2,7 @@ const express = require('express');
 const chalk = require('chalk'); 
 const open = require('open'); 
 
-var app = express(); 
+const app = express(); 
 const port = process.env.PORT || 3000; 
 
 // app.use(function (req, res, next) {
@@ -20,6 +20,6 @@ app.listen(port, (err) => {
         console.log(chalk.red(err)); 
     } else {
         open(`http://localhost:${port}`)
-        console.log(chalk.blue(`Server running on port ${port}. Application served from ./public/ folder.`));
+        console.log(chalk.blue(`Server running on port ${port}. Application served from \"./public/\". Run webpack to recompile changes.`));
     }
 }); 
