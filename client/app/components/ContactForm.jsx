@@ -8,7 +8,7 @@ var ContactForm = React.createClass({
         onChange: React.PropTypes.func.isRequired, 
         onSave: React.PropTypes.func.isRequired
     }, 
-    
+
     render: function () {
         return (
             <form> 
@@ -18,6 +18,14 @@ var ContactForm = React.createClass({
                     label="First name"
                     placeholder="Enter your first name"
                     value={this.props.contact.firstName}
+                    onChange={this.props.onChange}
+                    />
+
+                <TextInput 
+                    name="lastName"
+                    label="Last name"
+                    placeholder="Enter your last name"
+                    value={this.props.contact.lasttName}
                     onChange={this.props.onChange}
                     />
 
