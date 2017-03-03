@@ -11,3 +11,5 @@ Form > div > label + input
 - input name - name of the control - submitted with the form data
 - input value - initial value (optional)
 - input placeholder - textual hint to the user 
+
+Using State or Refs: http://stackoverflow.com/questions/29503213/use-state-or-refs-in-react-js-form-components (tl:dr - just use state)
