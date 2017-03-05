@@ -1,6 +1,6 @@
 const React = require('react');
 var ContactForm = require('ContactForm'); 
-var apiCaller = require('../utils/apiCaller'); 
+const axios = require('axios'); 
 
 var ManageContactForm = React.createClass({
 
@@ -21,7 +21,19 @@ var ManageContactForm = React.createClass({
 
     saveContact: function (event) {
         event.preventDefault(); 
-        apiCaller.save(this.state.contact); 
+        
+        axios.post('/api/contacts', {
+            firstName: this.state.contact.firstName, 
+            lastName: this.state.contact.lastName
+        })
+            .then(function (response) {
+                console.log('Response to Axios call:'); 
+                console.log(response); 
+            });
+
+
+
+        console.log('Component State: '); 
         console.log(this.state.contact); 
 
     }, 

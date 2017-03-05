@@ -5,7 +5,7 @@ module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js', 
     'script!foundation-sites/dist/foundation.min.js',
-    './app/app.jsx'
+    './client/app/app.jsx'
     ], 
   externals: {
     jquery: 'jQuery'
@@ -18,18 +18,18 @@ module.exports = {
   ], 
   output: {
     path: __dirname, //current folder
-    filename: './public/bundle.js'
+    filename: './client/public/bundle.js'
   }, 
   watch: true, 
   resolve: {
     root: __dirname, 
     alias: {
-      Main: 'app/components/Main.jsx', 
-      Navigation: 'app/components/Navigation.jsx',
-      ManageContactForm: 'app/components/ManageContactForm.jsx', 
-      ContactForm: 'app/components/ContactForm.jsx', 
-      TextInput: 'app/components/TextInput.jsx', 
-      applicationStyles: 'app/styles/app.scss'
+      Main: 'client/app/components/Main.jsx', 
+      Navigation: 'client/app/components/Navigation.jsx',
+      ManageContactForm: 'client/app/components/ManageContactForm.jsx', 
+      ContactForm: 'client/app/components/ContactForm.jsx', 
+      TextInput: 'client/app/components/TextInput.jsx', 
+      applicationStyles: 'client/app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']
   }, 
