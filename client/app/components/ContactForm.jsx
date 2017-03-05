@@ -25,7 +25,7 @@ var ContactForm = React.createClass({
                     name="lastName"
                     label="Last name"
                     placeholder="Enter your last name"
-                    value={this.props.contact.lasttName}
+                    value={this.props.contact.lastName}
                     onChange={this.props.onChange}
                     />
 

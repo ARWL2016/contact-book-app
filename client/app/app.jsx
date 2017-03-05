@@ -15,9 +15,13 @@ require('style!css!sass!applicationStyles')
 ReactDOM.render(
     <Router history={hashHistory}>
         <Route path='/' component={Main}>
-            <IndexRoute component={ShowContacts} />
+            
+            <Route path='showContacts' component={ShowContacts} />
             <Route path='manageContactForm' component={ManageContactForm} />
         </Route>
     </Router>, 
     document.getElementById('app')
 );
+
+
+// <IndexRoute component={ShowContacts} />
