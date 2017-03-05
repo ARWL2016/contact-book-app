@@ -1,6 +1,7 @@
 const React = require('react');
 var ContactForm = require('ContactForm'); 
 const axios = require('axios'); 
+const toastr = require('toastr'); 
 
 var ManageContactForm = React.createClass({
 
@@ -27,6 +28,7 @@ var ManageContactForm = React.createClass({
             lastName: this.state.contact.lastName
         })
             .then(function (response) {
+                toastr.success('Your contact has been saved.')
                 console.log('Response to Axios call:'); 
                 console.log(response); 
             });

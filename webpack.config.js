@@ -24,15 +24,21 @@ module.exports = {
   resolve: {
     root: __dirname, 
     alias: {
+      react: path.resolve(__dirname, './node_modules/react'),
+      React: path.resolve(__dirname, './node_modules/react'),
       Main: 'client/app/components/Main.jsx', 
       Navigation: 'client/app/components/Navigation.jsx',
       ManageContactForm: 'client/app/components/ManageContactForm.jsx', 
-      ContactForm: 'client/app/components/ContactForm.jsx', 
+      ContactForm: 'client/app/components/ContactForm.jsx',  
       TextInput: 'client/app/components/TextInput.jsx', 
       applicationStyles: 'client/app/styles/app.scss'
     },
+    fallback: path.resolve(__dirname, './node_modules'),
     extensions: ['', '.js', '.jsx']
   }, 
+  resolveLoader: {
+      fallback: path.resolve(__dirname, './node_modules')
+  },
   module: {
     loaders: [
       {
