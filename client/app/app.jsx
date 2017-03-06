@@ -10,7 +10,7 @@ var ShowContacts = require('./components/ShowContacts');
 $(document).foundation(); 
 
 // Load styles 
-// require('style!css!toastr')
+
 require('style!css!sass!applicationStyles')
 
 ReactDOM.render(

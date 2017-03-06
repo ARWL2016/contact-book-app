@@ -31,8 +31,9 @@ module.exports = {
       ManageContactForm: 'client/app/components/ManageContactForm.jsx', 
       ContactForm: 'client/app/components/ContactForm.jsx',  
       TextInput: 'client/app/components/TextInput.jsx', 
+      ShowContacts: 'client/app/components/ShowContacts.jsx', 
+      ContactList: 'client/app/components/ContactList.jsx', 
       applicationStyles: 'client/app/styles/app.scss', 
-      // toastr: 'node_modules/toastr/build/toastr.min.css'
     },
     fallback: path.resolve(__dirname, './node_modules'),
     extensions: ['', '.js', '.jsx']

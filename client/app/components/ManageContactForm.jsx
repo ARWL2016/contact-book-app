@@ -1,5 +1,4 @@
 const React = require('react');
-// const Router = require('react-router'); 
 var ContactForm = require('ContactForm'); 
 const axios = require('axios'); 
 const toastr = require('toastr'); 
@@ -17,10 +16,8 @@ var ManageContactForm = React.createClass({
     setContactState: function(event) {
         var value = event.target.value; 
         var field = event.target.name; 
-        // console.log(`The value is ${value} and the field was ${field}`); 
         this.state.contact[field] = value; 
         this.setState({contact: this.state.contact}); 
-        // console.log('state.contact.' + field + ' is ' + this.state.contact[field]);
     },
 
     resetState: function() {
