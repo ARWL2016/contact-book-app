@@ -28,8 +28,27 @@ var ManageContactForm = React.createClass({
         this.setState({contact: {firstName: '', lastName: ''}});
     },
 
+    validateForm: function() {
+        var formIsValid = true; 
+
+        if (this.state.contact.firstName.length < 2) {
+            formIsValid = false; 
+            toastr.warning('First name is too short'); 
+        }
+
+        if (this.state.contact.lastName.length < 2) {
+            formIsValid = false; 
+            toastr.warning('Last name is too short'); 
+        }
+        return formIsValid; 
+    },
+
     saveContact: function (event) {
         event.preventDefault(); 
+
+        if (!this.validateForm()) {
+            return; 
+        }
         
         axios.post('/api/contacts', {
             firstName: this.state.contact.firstName, 
@@ -48,7 +67,7 @@ var ManageContactForm = React.createClass({
         this.context.router.push('showContacts');
 
     }, 
-// RENDER **********************************************
+
     render: function () {
         return (
         <div> 

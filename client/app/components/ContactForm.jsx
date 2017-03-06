@@ -12,7 +12,7 @@ var ContactForm = React.createClass({
     render: function () {
         return (
             <form> 
-                <h1>Contact Form</h1>
+                <h1>Contact Form!!</h1>
                 <TextInput 
                     name="firstName"
                     label="First name"
