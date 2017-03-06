@@ -1,6 +1,4 @@
 @import "foundation"; 
 @include foundation-everything; 
 
-.menu > li > a {
-  display: inline; 
-}
+@import "components/navigation"; 
