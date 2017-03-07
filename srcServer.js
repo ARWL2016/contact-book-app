@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 3000; 
 
 mongoose.Promise = global.Promise; 
-// mongoose.connect('mongodb://localhost/contactBook'); 
+mongoose.connect('mongodb://localhost/contactBook'); 
 
 app.use(bodyParser.json()); 
 routes(app); 

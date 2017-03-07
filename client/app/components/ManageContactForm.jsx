@@ -20,11 +20,6 @@ var ManageContactForm = React.createClass({
         this.setState({contact: this.state.contact}); 
     },
 
-    resetState: function() {
-        console.log('reset');
-        this.setState({contact: {firstName: '', lastName: ''}});
-    },
-
     validateForm: function() {
         var formIsValid = true; 
 
@@ -51,18 +46,13 @@ var ManageContactForm = React.createClass({
             firstName: this.state.contact.firstName, 
             lastName: this.state.contact.lastName
         })
-            .then(function (response) {
-                toastr.success('Your contact has been saved.')
-                console.log('Response to Axios call:'); 
+            .then((response) => {
                 console.log(response); 
-                  
+                toastr.success(`${response.data.firstName} ${response.data.lastName} has been saved.`);
+                this.setState({contact: {firstName: '', lastName: ''}});
+                // this.context.router.push('showContacts');
             });
         
-        console.log('Component State: '); 
-        console.log(this.state.contact); 
-        this.resetState();
-        this.context.router.push('showContacts');
-
     }, 
 
     render: function () {

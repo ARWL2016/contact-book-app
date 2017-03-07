@@ -2,12 +2,22 @@ const React = require('React');
 const axios = require('axios');
 
 var ContactList = React.createClass({
-  //iterate over the array using forEach or similar 
-  // render the component once for each record
+
+  propTypes: {
+        contacts: React.PropTypes.array.isRequired
+    },
+
   render: function () {
+    var createContactRow = function(contact) {
+      return (
+        <p>{contact.firstName} {contact.lastName}</p> 
+      );
+    }; 
+    
     return (
       <div> 
         <h1>Contact List</h1> 
+        <div>{this.props.contacts.map(createContactRow, this)}</div>
         
       </div> 
     );
@@ -15,3 +25,5 @@ var ContactList = React.createClass({
 }); 
 
 module.exports = ContactList; 
+
+ 

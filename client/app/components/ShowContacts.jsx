@@ -3,18 +3,23 @@ const axios = require('axios');
 const ContactList = require('ContactList'); 
 
 var ShowContacts = React.createClass({
+  getInitialState: function() {
+    return {
+      contacts: [{firstName: '', lastName: ''}]
+    }; 
+  }, 
+
   componentWillMount: function() {
-    // add a read to the API 
-    // use axios to make API read call 
-    // update the component state 
-    // pass the array of object to contact list as a prop
+    axios.get('/api/contacts')
+      .then((list) => {
+        this.setState({contacts: list.data}); 
+      })
   }, 
   
   render: function () {
     return (
       <div> 
-        <h1>Contact Page</h1> 
-        <ContactList /> 
+        <ContactList contacts={this.state.contacts}/> 
       </div> 
     );
   }

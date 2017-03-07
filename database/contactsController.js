@@ -13,5 +13,12 @@ module.exports = {
     Contact.create(contactProps)
      .then(driver => res.send(driver))
      .catch(next); 
+  }, 
+
+  index(req, res, next) {
+    console.log(Chalk.red('INDEX HANDLER CALLED')); 
+    Contact.find()
+      .then(contacts => res.send(contacts))
+      .catch(next); 
   }
 }
