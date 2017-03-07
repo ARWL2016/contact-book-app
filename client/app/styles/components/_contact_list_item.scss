@@ -1,0 +1,16 @@
+.contact-list-box {
+  padding: 10px;  
+}
+
+.contact-list-box:nth-child(even) {
+  background-color: #bfd7ff; 
+}
+
+.contact-list-box:nth-child(odd) {
+  background-color: white;  
+}
+
+
+.contact-list-item {
+  list-style: none; 
+}

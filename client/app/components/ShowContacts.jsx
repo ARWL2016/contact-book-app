@@ -12,13 +12,14 @@ var ShowContacts = React.createClass({
   componentWillMount: function() {
     axios.get('/api/contacts')
       .then((list) => {
-        this.setState({contacts: list.data}); 
+        this.setState({contacts: list.data});
+        // console.log(list);  
       })
   }, 
   
   render: function () {
     return (
-      <div> 
+      <div className="wrapper"> 
         <ContactList contacts={this.state.contacts}/> 
       </div> 
     );

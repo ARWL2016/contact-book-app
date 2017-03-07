@@ -33,6 +33,7 @@ module.exports = {
       TextInput: 'client/app/components/TextInput.jsx', 
       ShowContacts: 'client/app/components/ShowContacts.jsx', 
       ContactList: 'client/app/components/ContactList.jsx', 
+      ContactListItem: 'client/app/components/ContactListItem.jsx',
       applicationStyles: 'client/app/styles/app.scss', 
     },
     fallback: path.resolve(__dirname, './node_modules'),

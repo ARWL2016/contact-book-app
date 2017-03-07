@@ -1,28 +1,22 @@
 const React = require('React'); 
 const axios = require('axios');
+import ContactListItem from './ContactListItem'; 
 
-var ContactList = React.createClass({
+const ContactList = (props) => {
 
-  propTypes: {
-        contacts: React.PropTypes.array.isRequired
-    },
-
-  render: function () {
-    var createContactRow = function(contact) {
-      return (
-        <p>{contact.firstName} {contact.lastName}</p> 
-      );
-    }; 
-    
+    const contactItems = props.contacts.map((contact) => {
+        return (
+          <ContactListItem key={contact._id} contact={contact} /> 
+         );
+    });
+      
     return (
-      <div> 
+      <div className=" "> 
         <h1>Contact List</h1> 
-        <div>{this.props.contacts.map(createContactRow, this)}</div>
-        
+        {contactItems}
       </div> 
     );
-  }
-}); 
+}; 
 
 module.exports = ContactList; 
 

@@ -1,4 +1,6 @@
 @import "foundation"; 
 @include foundation-everything; 
 
+@import "components/show_contacts"; 
 @import "components/navigation"; 
+@import "components/contact_list_item"
