@@ -5,22 +5,39 @@ const ContactList = require('ContactList');
 var ShowContacts = React.createClass({
   getInitialState: function() {
     return {
-      contacts: [{firstName: '', lastName: ''}]
+      contacts: [{firstName: '', lastName: ''}], 
+      deleteState: 'ready'
     }; 
   }, 
 
   componentWillMount: function() {
+    this.getContacts(); 
+  }, 
+
+  getContacts() {
     axios.get('/api/contacts')
       .then((list) => {
         this.setState({contacts: list.data});
-        // console.log(list);  
       })
-  }, 
+  },
+
+  deleteHandler(id) {
+    
+    console.log(id);
+    axios.post('/api/delete', {
+      id: id
+    }).then(() => {
+     this.getContacts(); 
+    })
+  },
+  
   
   render: function () {
     return (
       <div className="wrapper"> 
-        <ContactList contacts={this.state.contacts}/> 
+        <ContactList 
+          deleteHandler={this.deleteHandler}
+          contacts={this.state.contacts}/> 
       </div> 
     );
   }

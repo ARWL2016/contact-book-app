@@ -6,7 +6,10 @@ const ContactList = (props) => {
 
     const contactItems = props.contacts.map((contact) => {
         return (
-          <ContactListItem key={contact._id} contact={contact} /> 
+          <ContactListItem 
+            deleteHandler={props.deleteHandler}
+            key={contact._id} 
+            contact={contact} /> 
          );
     });
       
