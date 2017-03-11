@@ -6,8 +6,7 @@ const ContactListItem = React.createClass({
   deleteContact(e) {
     e.preventDefault();
     const idToDelete = this.props.contact._id; 
-    this.props.deleteHandler(idToDelete); 
-    
+    this.props.deleteHandler(idToDelete);
   },
   
   render: function() {

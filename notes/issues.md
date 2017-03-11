@@ -23,3 +23,9 @@
 - Use an arrow function and pass in props
 - Lose the render function - just return the JSX 
 - replace this.props with props.  
+
+####Delete Functionality 
+- The axios.delete or the underlying http delete did not behave as expected and the data object was undefined. 
+- Therefore, this app uses a post request and changes the route to api/delete  
+- We can use node's util.inspect library to open an object which the terminal gives as OBJECT Object  
+- In React, the delete is implemented with split functionality. On the component, we call preventDefault and grab the id. This is then sent up to a parent to do the http request and then rerender the component. 
