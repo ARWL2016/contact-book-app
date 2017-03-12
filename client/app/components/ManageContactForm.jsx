@@ -55,6 +55,14 @@ var ManageContactForm = React.createClass({
         
     }, 
 
+    componentWillMount: function() {
+        if (this.props.params) {
+            console.log(this.props.location.query.message);
+            // var contact = this.props.params.contact; 
+            // this.setState({contact: contact}); 
+        }
+    },
+
     render: function () {
         return (
         <div> 
@@ -70,8 +78,8 @@ var ManageContactForm = React.createClass({
     
 });
 
-ManageContactForm.contextTypes = {
-  router: React.PropTypes.object.isRequired
-};
+// ManageContactForm.contextTypes = {
+//   router: React.PropTypes.object.isRequired
+// };
 
 module.exports = ManageContactForm; 

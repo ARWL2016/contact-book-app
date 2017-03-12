@@ -18,7 +18,9 @@ ReactDOM.render(
         <Route path='/' component={Main}>
             
             <Route path='showContacts' component={ShowContacts} />
-            <Route path='manageContactForm' component={ManageContactForm} />
+            
+            <Route path='manageContactForm' component={ManageContactForm}>
+            </Route> 
         </Route>
     </Router>, 
     document.getElementById('app')
@@ -26,3 +28,4 @@ ReactDOM.render(
 
 
 // <IndexRoute component={ShowContacts} />
+// <Route name='manageContactForm' path='manageContactForm' component={ManageContactForm} />

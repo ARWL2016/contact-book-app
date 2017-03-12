@@ -29,3 +29,7 @@
 - Therefore, this app uses a post request and changes the route to api/delete  
 - We can use node's util.inspect library to open an object which the terminal gives as OBJECT Object  
 - In React, the delete is implemented with split functionality. On the component, we call preventDefault and grab the id. This is then sent up to a parent to do the http request and then rerender the component. 
+
+####React Router Queries  
+- Method used in Cory House Flux course using params now apparently deprecated 
+- Use query object instead: https://medium.com/@dabit3/beginner-s-guide-to-react-router-53094349669#.s00oluddi 
