@@ -20,15 +20,16 @@ const ContactListItem = React.createClass({
   },
   
   render: function() {
+    const {firstName, lastName, _id} = this.props.contact; 
     return (
       <div className="contact-list-box"> 
-        <li className="contact-list-item">{this.props.contact.firstName} {this.props.contact.lastName} 
+        <li className="contact-list-item">{firstName} {lastName} 
         <a href="#" onClick={this.deleteContact}>  delete</a> 
         <Link to={{
           pathname: 'manageContactForm', 
-          query: {message: this.props.contact.firstName }
-        }}
-          >  edit</Link></li>
+          query: {firstName, lastName, _id}
+        }} >  edit</Link></li>
+          <li className="contact-list-item">{_id}</li>
       </div> 
     ) 
   }

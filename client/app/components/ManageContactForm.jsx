@@ -9,7 +9,7 @@ var ManageContactForm = React.createClass({
     
     getInitialState: function() {
         return {
-            contact: { firstName: '', lastName: ''}
+            contact: { firstName: '', lastName: '', _id: ''}
         }; 
     },
 
@@ -42,7 +42,8 @@ var ManageContactForm = React.createClass({
             return; 
         }
         
-        axios.post('/api/contacts', {
+        if (!this.state.contact._id) {
+            axios.post('/api/contacts', {
             firstName: this.state.contact.firstName, 
             lastName: this.state.contact.lastName
         })
@@ -52,14 +53,19 @@ var ManageContactForm = React.createClass({
                 this.setState({contact: {firstName: '', lastName: ''}});
                 // this.context.router.push('showContacts');
             });
+        } else {
+            // make an update
+        }
+        
         
     }, 
 
-    componentWillMount: function() {
-        if (this.props.params) {
-            console.log(this.props.location.query.message);
-            // var contact = this.props.params.contact; 
-            // this.setState({contact: contact}); 
+    componentDidMount: function() {
+        if (this.props.location.query) {
+            console.log(this.props.location.query);
+            let { firstName, lastName, _id} = this.props.location.query; 
+            
+            this.setState({contact: {firstName, lastName, _id}}); 
         }
     },
 

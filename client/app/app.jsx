@@ -15,10 +15,8 @@ require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
     <Router history={hashHistory}>
-        <Route path='/' component={Main}>
-            
-            <Route path='showContacts' component={ShowContacts} />
-            
+        <Route path='/' component={Main}>   
+            <Route path='showContacts' component={ShowContacts} />  
             <Route path='manageContactForm' component={ManageContactForm}>
             </Route> 
         </Route>
