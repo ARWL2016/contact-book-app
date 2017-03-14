@@ -1,20 +1,20 @@
-const React = require('React'); 
-const axios = require('axios');
+import React from 'React'; 
+import axios from 'axios';
 import ContactListItem from './ContactListItem'; 
 
 const ContactList = (props) => {
-
+  
     const contactItems = props.contacts.map((contact) => {
         return (
           <ContactListItem 
-            deleteHandler={props.deleteHandler}
-            key={contact._id} 
+            key={`${contact.lastName}-${contact.firstName}`} 
+            deleteHandler={props.deleteHandler} 
             contact={contact} /> 
          );
     });
       
     return (
-      <div className=" "> 
+      <div> 
         <h1>Contact List</h1> 
         {contactItems}
       </div> 

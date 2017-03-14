@@ -1,15 +1,8 @@
 const React = require('react');
-
 var TextInput = require('TextInput'); 
 
 var ContactForm = React.createClass({
-    propTypes: {
-        contact: React.PropTypes.object.isRequired, 
-        onChange: React.PropTypes.func.isRequired, 
-        onSave: React.PropTypes.func.isRequired
-    }, 
 
-    
     render: function () {
         return (
             <form> 

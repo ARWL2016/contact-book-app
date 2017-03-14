@@ -1,9 +1,8 @@
-const React = require('react');
-var ContactForm = require('ContactForm'); 
-const axios = require('axios'); 
-const toastr = require('toastr'); 
+import React from 'react';
+import ContactForm from 'ContactForm'; 
+import axios from 'axios'; 
+import toastr from 'toastr'; 
 import { browserHistory } from 'react-router';
-
 
 var ManageContactForm = React.createClass({
     
@@ -14,21 +13,23 @@ var ManageContactForm = React.createClass({
     },
 
     setContactState: function(event) {
-        var value = event.target.value; 
-        var field = event.target.name; 
-        this.state.contact[field] = value; 
-        this.setState({contact: this.state.contact}); 
+        const {contact} = this.state; 
+        const {value} = event.target; 
+        const field = event.target.name; 
+        contact[field] = value; 
+        this.setState({contact}); 
     },
 
     validateForm: function() {
         var formIsValid = true; 
+        const {firstName, lastName} = this.state.contact; 
 
-        if (this.state.contact.firstName.length < 2) {
+        if (firstName.length < 2) {
             formIsValid = false; 
             toastr.warning('First name is too short'); 
         }
 
-        if (this.state.contact.lastName.length < 2) {
+        if (lastName.length < 2) {
             formIsValid = false; 
             toastr.warning('Last name is too short'); 
         }
@@ -43,29 +44,27 @@ var ManageContactForm = React.createClass({
         }
         
         if (!this.state.contact._id) {
-            axios.post('/api/contacts', {
-            firstName: this.state.contact.firstName, 
-            lastName: this.state.contact.lastName
-        })
+            const {firstName, lastName} = this.state.contact; 
+            axios.post('/api/contacts', {firstName, lastName})
             .then((response) => {
-                console.log(response); 
                 toastr.success(`${response.data.firstName} ${response.data.lastName} has been saved.`);
                 this.setState({contact: {firstName: '', lastName: ''}});
-                // this.context.router.push('showContacts');
+                
             });
-        } else {
-            // make an update
-        }
-        
-        
+        } else { 
+            axios.post('/api/edit', this.state.contact)
+                .then((response) => {
+                toastr.success(`${response.data.firstName} ${response.data.lastName} has been saved.`);
+                this.setState({contact: {firstName: '', lastName: '', _id: ''}}); 
+            });
+        }  
     }, 
 
     componentDidMount: function() {
-        if (this.props.location.query) {
-            console.log(this.props.location.query);
-            let { firstName, lastName, _id} = this.props.location.query; 
-            
-            this.setState({contact: {firstName, lastName, _id}}); 
+        const {query} = this.props.location; 
+        if (query) {
+            const { firstName, lastName, _id} = query; 
+            this.setState({contact: {firstName, lastName, _id}});  
         }
     },
 

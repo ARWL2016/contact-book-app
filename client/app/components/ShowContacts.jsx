@@ -1,38 +1,33 @@
-const React = require('React'); 
-const axios = require('axios');
-const ContactList = require('ContactList'); 
+import React, {Component} from 'React'; 
+import axios from 'axios';
+import ContactList from 'ContactList'; 
 
-var ShowContacts = React.createClass({
-  getInitialState: function() {
-    return {
-      contacts: [{firstName: '', lastName: ''}], 
-      deleteState: 'ready'
-    }; 
-  }, 
+class ShowContacts extends Component {
+  constructor(props) {
+    super(props);
+      this.state = {contacts: [{firstName: '', lastName: ''}] }
+  }
 
-  componentWillMount: function() {
+  componentWillMount() {
     this.getContacts(); 
-  }, 
+  } 
 
   getContacts() {
     axios.get('/api/contacts')
       .then((list) => {
         this.setState({contacts: list.data});
       })
-  },
+  }
 
   deleteHandler(id) {
-    
-    console.log(id);
     axios.post('/api/delete', {
       id: id
     }).then(() => {
      this.getContacts(); 
     })
-  },
+  }
   
-  
-  render: function () {
+  render() {
     return (
       <div className="wrapper"> 
         <ContactList 
@@ -41,6 +36,6 @@ var ShowContacts = React.createClass({
       </div> 
     );
   }
-}); 
+}
 
-module.exports = ShowContacts; 
+export default ShowContacts; 

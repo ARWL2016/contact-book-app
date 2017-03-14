@@ -1,10 +1,10 @@
-const React = require('react'); 
-const ReactDOM = require('react-dom');
-const {Route, Router, IndexRoute, hashHistory} = require('react-router'); 
+import React from 'react'; 
+import ReactDOM from 'react-dom';
+import {Route, Router, IndexRoute, hashHistory} from 'react-router'; 
 
-var Main = require('Main'); 
-var ManageContactForm = require('ManageContactForm'); 
-var ShowContacts = require('./components/ShowContacts'); 
+import Main from 'Main'; 
+import ManageContactForm from 'ManageContactForm'; 
+import ShowContacts from 'ShowContacts'; 
 
 // Load foundation 
 $(document).foundation(); 
@@ -24,6 +24,3 @@ ReactDOM.render(
     document.getElementById('app')
 );
 
-
-// <IndexRoute component={ShowContacts} />
-// <Route name='manageContactForm' path='manageContactForm' component={ManageContactForm} />
