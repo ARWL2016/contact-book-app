@@ -1,7 +1,7 @@
-const React = require('react');
-var Navigation = require('Navigation'); 
+import React from 'React'; 
+import Navigation from 'Navigation';
 
-var Main = (props) => {
+const Main = (props) => {
     return (
         <div> 
             <Navigation /> 

@@ -1,27 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ContactForm from 'ContactForm'; 
 import axios from 'axios'; 
 import toastr from 'toastr'; 
 import { browserHistory } from 'react-router';
 
-var ManageContactForm = React.createClass({
-    
-    getInitialState: function() {
-        return {
-            contact: { firstName: '', lastName: '', _id: ''}
-        }; 
-    },
+export default class ManageContactForm extends Component {
+    constructor(props) {
+        super(props);
 
-    setContactState: function(event) {
+        this.state = { contact: { firstName: '', lastName: '', _id: ''} }
+
+        this.setContactState = this.setContactState.bind(this); 
+        this.saveContact = this.saveContact.bind(this); 
+    }
+    
+    setContactState(event) {
         const {contact} = this.state; 
         const {value} = event.target; 
         const field = event.target.name; 
         contact[field] = value; 
         this.setState({contact}); 
-    },
+    }
 
-    validateForm: function() {
-        var formIsValid = true; 
+    validateForm() {
+        let formIsValid = true; 
         const {firstName, lastName} = this.state.contact; 
 
         if (firstName.length < 2) {
@@ -34,9 +36,9 @@ var ManageContactForm = React.createClass({
             toastr.warning('Last name is too short'); 
         }
         return formIsValid; 
-    },
+    }
 
-    saveContact: function (event) {
+    saveContact(event) {
         event.preventDefault(); 
 
         if (!this.validateForm()) {
@@ -48,8 +50,7 @@ var ManageContactForm = React.createClass({
             axios.post('/api/contacts', {firstName, lastName})
             .then((response) => {
                 toastr.success(`${response.data.firstName} ${response.data.lastName} has been saved.`);
-                this.setState({contact: {firstName: '', lastName: ''}});
-                
+                this.setState({contact: {firstName: '', lastName: ''}});     
             });
         } else { 
             axios.post('/api/edit', this.state.contact)
@@ -58,33 +59,26 @@ var ManageContactForm = React.createClass({
                 this.setState({contact: {firstName: '', lastName: '', _id: ''}}); 
             });
         }  
-    }, 
+    }
 
-    componentDidMount: function() {
+    componentDidMount() {
         const {query} = this.props.location; 
         if (query) {
             const { firstName, lastName, _id} = query; 
             this.setState({contact: {firstName, lastName, _id}});  
         }
-    },
+    }
 
-    render: function () {
+    render() {
         return (
-        <div> 
+            <div> 
                 <ContactForm 
                     contact={this.state.contact}
                     onChange={this.setContactState}
-                    onSave={this.saveContact}
-                /> 
-
-        </div> 
+                    onSave={this.saveContact} /> 
+            </div> 
         );    
     }
-    
-});
+}
 
-// ManageContactForm.contextTypes = {
-//   router: React.PropTypes.object.isRequired
-// };
-
-module.exports = ManageContactForm; 
+ 

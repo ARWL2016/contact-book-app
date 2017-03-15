@@ -7,5 +7,4 @@ module.exports = (app) => {
   app.post('/api/contacts', ContactsController.create); 
   app.post('/api/edit', ContactsController.edit); 
   app.post('/api/delete', ContactsController.delete); 
-
 }

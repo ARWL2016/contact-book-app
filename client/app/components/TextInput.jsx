@@ -1,28 +1,21 @@
-const React = require('react');
+import React, { Component } from 'react'; 
 
-var TextInput = React.createClass({
-    propTypes: {
-        name: React.PropTypes.string.isRequired,
-        label: React.PropTypes.string.isRequired,
-        onChange: React.PropTypes.func.isRequired,
-        placeholder: React.PropTypes.string,
-        value: React.PropTypes.string,
-    },
-    render: function () {
+export default class TextInput extends Component {
+
+    render() {
+        const {name} = this.props; 
         return (
         <div className="form-input-wrapper"> 
-            <label htmlFor={this.props.name}>{this.props.label}</label>
+            <label htmlFor={name}>{this.props.label}</label>
             <div className="form-input-field">
                 <input type="text"
-                    name={this.props.name}
+                    name={name}
                     placeholder={this.props.placeholder}
-                    ref={this.props.name} 
+                    ref={name} 
                     value={this.props.value}
                     onChange={this.props.onChange} />
             </div>
         </div> 
         );
     } 
-}); 
-
-module.exports = TextInput; 
+}

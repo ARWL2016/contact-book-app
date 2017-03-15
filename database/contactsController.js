@@ -1,4 +1,4 @@
-import Contact from './contactModel';  
+const Contact = require('./contactModel');  
  
 module.exports = {
   hello(req, res) { 
