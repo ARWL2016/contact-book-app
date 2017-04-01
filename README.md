@@ -2,11 +2,12 @@
 1. mongod
 2. npm start to run server 
 3. webpack with watch: true to recompile automatically
+OR: npm run start:dev
 
 ####Featured Libraries   
 - React 
 - Express / Node  
-- MongoDB 
+- MongoDB / Mongoose
 - API 
 
 ####Notes 

@@ -6,7 +6,7 @@ const Navigation = () => {
         <div className="top-bar">
             <div className="top-bar-left">
                 <ul className="menu">
-                    <li className="menu-text">Contact Book</li>
+                    <li className="menu-text">Contact Books</li>
                     <li>
                         <Link to="/showContacts" activeClassName="active-link">View Contacts</Link>
                     </li>

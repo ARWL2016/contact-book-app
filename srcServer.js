@@ -21,7 +21,7 @@ app.listen(port, (err) => {
     if (err) {
         console.log(chalk.red(err)); 
     } else {
-        open(`http://localhost:${port}`);
-        console.log(chalk.blue(`Server running on port ${port}. Application served from \"./public/\". Run webpack to recompile changes.`));
+        // open(`http://localhost:${port}`);
+        console.log(chalk.blue(`Server running on port ${port}. Application served from \"./public/\".`));
     }
 }); 
